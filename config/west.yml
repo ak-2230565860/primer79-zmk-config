@@ -8,4 +8,7 @@ manifest:
       revision: main
       import: app/west.yml
   self:
+    # このリポジトリ自体を 'primer79-zmk-config' という名前のモジュールとして定義します。
+    # これにより、リポジトリ内の 'boards' フォルダが読み込まれるようになります。
+    name: primer79-zmk-config
     path: config
