@@ -1,11 +1,6 @@
-on: [push, workflow_dispatch]
+# このファイルでビルドしたいキーボードの組み合わせを定義します。
+---
+include:
+  - board: nice_nano_v2
+    shield: primer79
 
-jobs:
-  build:
-    # ZMK公式のビルドシステムを直接呼び出します。
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    # 'with:' を使って、ビルド対象の情報を「引数」として直接渡します。
-    # これが最もシンプルで直接的な呼び出し方法です。
-    with:
-      board: "nice_nano_v2"
-      shield: "primer79"
