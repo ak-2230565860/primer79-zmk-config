@@ -2,11 +2,15 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
+    # ZMK公式リポジトリにあるビルドシステムを呼び出す設定
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # 'with:' 以下は、呼び出したビルドシステムに渡すパラメータ
     with:
-      # 作成したいファームウェアの定義
-      # includeにボードとシールドの組み合わせを記述する
-      # shieldの 'primer79' は左右分割ではないため、'left'や'right'は不要
+      # 'include:' 以下にビルドしたいキーボードの組み合わせを列挙する
       include:
+        # ハイフン(-)から始まるブロックが、一つのビルド対象の組み合わせです。
+        # このハイフンのインデントが基準になります。
         - board: nice_nano_v2
+          # 'board' と 'shield' は、同じハイフン(-)のブロックに属するため、
+          # 必ず同じ階層（同じ数のスペースでインデント）にする必要があります。
           shield: primer79
