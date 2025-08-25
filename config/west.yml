@@ -8,5 +8,4 @@ manifest:
       revision: main
       import: app/west.yml
   self:
-    # この west.yml はルートにあるため、configフォルダへのパスは 'config' となります。
-    path: config
+    path: .
