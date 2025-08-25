@@ -4,6 +4,6 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     with:
-      include:
-        - board: nice_nano_v2
-          shield: primer79
+      # 'include' の値は、全体をシングルクォートで囲んだ「文字列」として渡します。
+      # 文字列の中身は、ビルド対象を定義するJSON形式の配列です。
+      include: '[{"board": "nice_nano_v2", "shield": "primer79"}]'
