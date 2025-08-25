@@ -3,3 +3,5 @@
 include:
   - board: nice_nano_v2
     shield: primer_79
+    # keymap-fileプロパティを追加し、キーマップファイルの正確な場所を指定します。
+    keymap-file: /__w/primer79-zmk-config/primer79-zmk-config/config/primer_79.keymap
