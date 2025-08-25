@@ -11,4 +11,3 @@ jobs:
       include:
         - board: nice_nano_v2
           shield: primer79
-          
