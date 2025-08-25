@@ -1,0 +1,13 @@
+# .github/workflows/build.yml
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      # 作成したいファームウェアの定義
+      # includeにボードとシールドの組み合わせを記述する
+      # shieldの 'primer79' は左右分割ではないため、'left'や'right'は不要
+      include:
+        - board: nice_nano_v2
+          shield: primer79
