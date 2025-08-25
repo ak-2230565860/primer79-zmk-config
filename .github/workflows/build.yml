@@ -2,8 +2,20 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
+    # 'strategy' と 'matrix' を使ってビルドの組み合わせを定義します。
+    # これがGitHub Actionsの標準的な方法です。
+    strategy:
+      fail-fast: false
+      matrix:
+        # 'include' は matrix の一部として、ここで定義します。
+        include:
+          - board: nice_nano_v2
+            shield: primer79
+
+    # ZMK公式のビルドシステムを呼び出します。
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    
+    # 'with:' を使って、matrixで定義した値を個別のパラメータとして渡します。
     with:
-      # 'include' の値は、全体をシングルクォートで囲んだ「文字列」として渡します。
-      # 文字列の中身は、ビルド対象を定義するJSON形式の配列です。
-      include: '[{"board": "nice_nano_v2", "shield": "primer79"}]'
+      board: ${{ matrix.board }}
+      shield: ${{ matrix.shield }}
